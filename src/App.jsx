@@ -13,7 +13,7 @@ function Section({ id, title, children }) {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="max-w-4xl mx-auto"
       >
-        <h2 className="text-4xl md:text-6xl font-bold mb-6 text-brand-700">{title}</h2>
+        <h2 className="text-4xl md:text-6xl font-bold mb-6 text-brand-500">{title}</h2>
         <div className="text-lg text-gray-700 dark:text-gray-200">
           {children}
         </div>
@@ -31,8 +31,8 @@ export default function App() {
   }, [])
 
   return (
-    <div ref={containerRef} data-scroll-container className="bg-white dark:bg-black text-gray-900 dark:text-white">
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/30">
+    <div ref={containerRef} data-scroll-container className="bg-[var(--bg)] text-[var(--fg)]">
+      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/20">
         <nav className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <a href="#hero" className="font-semibold">Mi Portfolio</a>
           <div className="flex gap-4 text-sm">
@@ -43,21 +43,12 @@ export default function App() {
         </nav>
       </header>
 
-      <section id="hero" className="relative min-h-screen flex items-center justify-center">
+      <section id="hero" className="relative h-screen">
         <div className="absolute inset-0 -z-10">
-          {/* Reemplaza la URL por tu escena de Spline */}
-          <Spline scene="https://prod.spline.design/2s3n3b8s/sample/scene.splinecode" />
+          {/* Escena Spline principal */}
+          <Spline scene="https://prod.spline.design/AkTzU1OUqQjfvEmT/scene.splinecode" />
         </div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center px-6"
-        >
-          <h1 className="text-5xl md:text-7xl font-extrabold">Hola, soy Dev</h1>
-          <p className="mt-4 text-xl md:text-2xl text-gray-200">Construyo experiencias web modernas con React, 3D y animaciones.</p>
-          <a href="#work" data-scroll-to className="inline-block mt-8 px-6 py-3 bg-brand-500 hover:bg-brand-700 text-white rounded-md">Ver proyectos</a>
-        </motion.div>
+        {/* Hero sin copy para que Spline sea el protagonista */}
       </section>
 
       <Section id="about" title="Sobre mí">
@@ -73,7 +64,7 @@ export default function App() {
             <motion.li key={i} className="p-6 rounded-lg border border-white/10 bg-white/5"
               whileHover={{ scale: 1.02 }} transition={{ type: 'spring', stiffness: 200, damping: 15 }}>
               <h3 className="text-2xl font-semibold">Proyecto {i + 1}</h3>
-              <p className="mt-2 text-gray-300">Descripción breve del proyecto con foco en valor y tecnología.</p>
+              <p className="mt-2 text-[var(--muted)]">Descripción breve del proyecto con foco en valor y tecnología.</p>
             </motion.li>
           ))}
         </ul>
