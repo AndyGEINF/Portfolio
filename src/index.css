@@ -11,16 +11,17 @@ html, body, #root {
   min-height: 100vh;
 }
 
-/* Paleta base (puedes ajustar estos valores) */
+/* Paleta base */
 :root {
   --brand-50: #eef2ff;
   --brand-100: #e0e7ff;
-  --brand-500: #6366f1; /* Indigo */
+  --brand-500: #6366f1; 
   --brand-700: #4338ca;
 
   --bg: #0b0b12;
   --fg: #ffffff;
   --muted: #a3a3a3;
+  --accent: #F472B6;
 }
 
 .dark {
